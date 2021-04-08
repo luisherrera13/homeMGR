@@ -1,17 +1,30 @@
 @layout('layouts.main')
 
 @section('title')
-houseKeeeper - Lista de los objetos 
+houseKeeper - Encuentra todos tus objetos
 @endsection
 
-@section('content')
-  <h1>Objetos</h1>
 
-  <div class="item-container">
+
+@section('content')
+
+<h1>Espacios</h1>
+@each(homeSpace in homeSpaces)
+  <div class="space-container">
     <div class="blank"></div>
-    <div class="item-info">
-      <h3>Objeto</h3>
-      <p>Descripcion.</p>
+    <div class="spaces-info">
+      <h3>{{ homeSpace.spaceName }}"</h3>
+      <p>{{ homeSpace.spaceFunction }}</p>
     </div>
   </div>
+  @endeach
+
+<h1>Objetos</h1>
+<div class="item-container">
+  <div class="blank"></div> 
+  <div class="item-info">
+      <h3>Nombre del Objeto</h3>
+      <p>Descripcion del Objeto</p>
+  </div> 
+</div>
 @endsection
