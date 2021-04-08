@@ -38,6 +38,14 @@ houseKeeper - Registro
                 {{ getErrorFor('password') }}
             </span>
         @endif
+        <label for="home">Nombre Casa</label>
+        <input type="text" name="home" value="{{ old('home', '') }}">
+        @if(hasErrorFor('home'))
+            <span>
+                {{ getErrorFor('home') }}
+            </span>
+        @endif
+
 
         <button type="submit">Registrarse</button>
       </form>

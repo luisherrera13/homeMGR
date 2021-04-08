@@ -9,6 +9,7 @@ class HomeSpacesSchema extends Schema {
       table.increments()
       table.string('spaceName').notNullable()
       table.string('spaceFunction')
+      table.integer('home_id').unsigned().notNullable().references('id').inTable('homes')
       table.timestamps()
     })
   }
