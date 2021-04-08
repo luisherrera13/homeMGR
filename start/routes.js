@@ -19,4 +19,5 @@ const Route = use('Route')
 //Route.on('/').render('index')
 Route.get('/', 'HomeSpaceController.home');
 Route.on('/signup').render('auth.signup');
+Route.post('/signup', 'UserController.create').validator('CreateUser');
 Route.on('/login').render('auth.login');
