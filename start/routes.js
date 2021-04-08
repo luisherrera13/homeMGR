@@ -25,3 +25,4 @@ Route.get('/logout', async ({ auth, response }) => {
     await auth.logout();
     return response.redirect('/');
 });
+Route.post('/login', 'UserController.login').validator('LoginUser');
