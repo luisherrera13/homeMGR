@@ -70,3 +70,7 @@ h1 {
   border: 1px solid lightgray;
   border-radius: 5px;
 }
+.smimage{
+  max-width: 100%;
+  max-height: 100%;
+}

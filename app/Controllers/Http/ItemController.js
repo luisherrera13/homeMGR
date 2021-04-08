@@ -4,12 +4,12 @@ class ItemController {
     async home({view}) {
 
         // Create an item
-        const item = new Item;
-        item.title = 'My item name';
-        item.link = 'http://google.com';
-        item.description = 'My item description';
+        //const item = new Item;
+        //item.title = 'My item name';
+        //item.link = 'http://google.com';
+        //item.description = 'My item description';
 
-        await item.save();
+        //await item.save();
 
         // Fetch an item
         const items = await Item.all();
