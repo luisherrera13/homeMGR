@@ -18,3 +18,5 @@ const Route = use('Route')
 
 //Route.on('/').render('index')
 Route.get('/', 'HomeSpaceController.home');
+Route.on('/signup').render('auth.signup');
+Route.on('/login').render('auth.login');

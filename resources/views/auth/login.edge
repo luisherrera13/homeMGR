@@ -1,0 +1,40 @@
+@layout('layouts.main')
+
+@section('extracss')
+{{ style('forms') }}
+@endsection
+
+@section('title')
+houseKeeper - Ingresar
+@endsection
+
+@section('login-content')
+  <h1>Ingresar</h1>
+
+  <div class="item-container">
+    @if(flashMessage('loginError'))
+        <span>{{ flashMessage('loginError') }}</span>
+    @endif
+      <form action="{{ route('UserController.login') }}" method="POST">
+        {{ csrfField() }}
+
+        <label for="email">Email</label>
+        <input type="email" name="email" value="{{ old('email', '') }}">
+        @if(hasErrorFor('email'))
+            <span>
+                {{ getErrorFor('email') }}
+            </span>
+        @endif
+
+        <label for="password">Contraseña</label>
+        <input type="password" name="password">
+        @if(hasErrorFor('password'))
+            <span>
+                {{ getErrorFor('password') }}
+            </span>
+        @endif
+
+        <button type="submit">Ingresar</button>
+      </form>
+  </div>
+@endsection
