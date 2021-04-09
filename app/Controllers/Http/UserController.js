@@ -8,8 +8,8 @@ class UserController {
     );
 
     // Find a user by user id and save needed values to home table
-    const home = await User.find(user.id);
-    await home.home().create({ home_name: "home", user_id: "id" });
+    const homeValues = await User.find(user.id);
+    await homeValues.homes().create({ home_name: user.home });
 
     await auth.login(user);
     return response.redirect("/");
