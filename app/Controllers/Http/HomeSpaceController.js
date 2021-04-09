@@ -9,9 +9,9 @@ class HomeSpaceController {
        /* const homeSpace = new HomeSpace;
         homeSpace.spaceName = 'Habitacion';
         homeSpace.spaceFunction = 'Descansar';
-        homeSpace.home_id = '1';*/
+        homeSpace.home_id = '1';
 
-        await homeSpace.save();
+        await homeSpace.save();*/
 
         // Fetch an item
         const homeSpaces = await HomeSpace.all();
