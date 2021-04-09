@@ -6,12 +6,12 @@ class HomeSpaceController {
     async home({view}) {
 
         // Create an item
-       // const homeSpace = new HomeSpace;
-       // homeSpace.spaceName = 'Habitacion';
-       // homeSpace.spaceFunction = 'Descansar';
-       // homeSpace.description = 'My item description';
+       /* const homeSpace = new HomeSpace;
+        homeSpace.spaceName = 'Habitacion';
+        homeSpace.spaceFunction = 'Descansar';
+        homeSpace.home_id = '1';*/
 
-       // await homeSpace.save();
+        await homeSpace.save();
 
         // Fetch an item
         const homeSpaces = await HomeSpace.all();
