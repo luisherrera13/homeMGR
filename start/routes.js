@@ -17,8 +17,9 @@
 const Route = use('Route')
 
 //Route.on('/').render('index')
-Route.get('/', 'HomeSpaceController.home');
-Route.get('/items', 'ItemController.home');
+Route.get('/', 'HomeController.home');
+Route.get('/spaces/:id', 'HomeSpaceController.home');
+Route.get('/items/:id', 'ItemController.home');
 Route.on('/signup').render('auth.signup');
 Route.post('/signup', 'UserController.create').validator('CreateUser');
 Route.on('/login').render('auth.login');
