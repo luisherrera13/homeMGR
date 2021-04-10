@@ -5,33 +5,23 @@ houseKeeper - Encuentra todos tus objetos
 @endsection
 
 
-
 @section('content')
 @loggedIn
-@if(homeSpaces.length>0)
-<h1>Espacios</h1>
-@each(homeSpace in homeSpaces)
-  <div class="space-container">
-    <div class="spaces-info">
-      <h3>{{ homeSpace.spaceName }}</h3>
-      <p>{{ homeSpace.spaceFunction }}</p>
+
+@if(homes.length>0)
+@each(homeValues in homes)
+  @if(homeValues.user_id==auth.user.id)
+    <div class="space-container">
+      <div class="spaces-info">
+        <h3> Casa: </h3>
+        <a href="/spaces/{{ homeValues.id }}">
+        <h4>{{ homeValues.id }}</h4>
+        <h4>{{ homeValues.home_name }}</h4></a>
+      </div>
     </div>
-  </div>
+  @endif
   @endeach
 @endif
-@if(items.length>0)
-<h1>Objetos</h1>
-@each(item in items)
-<div class="item-container">
-  <div class="blank">
-    <img class="smimage" src='./itemImages/{{item.image}}.jpeg'>
-  </div> 
-  <div class="item-info">
-      <h3>{{ item.name }}</h3>
-      <p>{{ item.description }}</p>
-  </div> 
-</div>
-@endeach
-@endif
+
 @endloggedIn
 @endsection

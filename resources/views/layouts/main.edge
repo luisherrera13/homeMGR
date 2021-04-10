@@ -17,8 +17,8 @@
     <a href="/" id="logo"> houseKeeper</a>
       <nav>
           <ul>
-              <li><a href="/">Inicio</a></li>
               @loggedIn
+                    <li><a href="/">Hola {{ auth.user.username }}!!</a></li>
                     <li><a href="/items">Objetos</a></li>
                     <li><a href="/logout">Salir</a></li>
                 @else

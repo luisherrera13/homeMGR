@@ -1,0 +1,27 @@
+@layout('layouts.main')
+
+@section('title')
+houseKeeper - Encuentra todos tus objetos
+@endsection
+
+
+@section('content')
+@loggedIn
+
+@if(homeSpaces.length>0)
+@each(homeSpace in homeSpaces)
+
+  <div class="space-container">
+    <div class="spaces-info">
+      <h3> Espacios: </h3>
+      <a href="/items/{{ homeSpace.id }}">
+      <h3>{{ homeSpace.spaceName }}</h3>
+      <p>{{ homeSpace.spaceFunction }}</p></a>
+    </div>
+  </div>
+
+@endeach
+@endif
+
+@endloggedIn
+@endsection

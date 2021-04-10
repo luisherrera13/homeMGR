@@ -1,0 +1,29 @@
+@layout('layouts.main')
+
+@section('title')
+houseKeeper - Encuentra todos tus objetos
+@endsection
+
+
+@section('content')
+@loggedIn
+
+@if(items.length>0)
+<h1>Objetos</h1>
+@each(item in items)
+<a href="/items/{{ item.id }}" class="item-container">
+  <div class="blank">
+    <img class="smimage" src='./itemImages/{{item.image}}'>
+  </div> 
+  <div class="item-info">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+  </div>
+</a>
+
+
+@endeach
+@endif
+
+@endloggedIn
+@endsection
