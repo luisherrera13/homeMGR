@@ -3,7 +3,7 @@
 const HomeSpace = use('App/Models/HomeSpace')
 
 class HomeSpaceController {
-    async home({view}) {
+    async home({view, params}) {
 
         // Create an item
        /* const homeSpace = new HomeSpace;
@@ -12,11 +12,12 @@ class HomeSpaceController {
         homeSpace.home_id = '1';
 
         await homeSpace.save();*/
-
+        
         // Fetch an item
-        const homeSpaces = await HomeSpace.all();
+       // const homeSpaces = await HomeSpace.all();
+        const homeSpaces = await HomeSpace.query().where('home_id', params.id).fetch();
 
-        return view.render('index', { homeSpaces: homeSpaces.toJSON() })
+        return view.render('lists/spaces', { homeSpaces: homeSpaces.toJSON() })
     }
 }
 
