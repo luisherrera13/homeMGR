@@ -1,7 +1,7 @@
 'use strict'
 const Item = use('App/Models/Item')
 class ItemController {
-    async home({view, params}) {
+    async ItemList({view, params}) {
 
         // Create an item
         //const item = new Item;
@@ -15,6 +15,12 @@ class ItemController {
         //const items = await Item.all();
         const items = await Item.query().where('home_space_id', params.id).fetch();
         return view.render('lists/items', { items: items.toJSON() })
+    }
+    async ItemDetail({view, params}) {
+
+        const item = await Item.query().where('id', params.id).fetch();
+        return view.render('details/itemDetail', { item: item.toJSON() })
+
     }
 }
 

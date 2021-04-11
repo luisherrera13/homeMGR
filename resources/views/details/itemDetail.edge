@@ -1,0 +1,76 @@
+@layout('layouts.main')
+
+@section('title')
+houseKeeper - Encuentra todos tus objetos
+@endsection
+
+
+@section('content')
+@loggedIn
+
+@if(item.length>0)
+
+@each(itemView in item)
+
+<div class="item-container-details">
+    <table>
+        <tr>
+            <th colspan="4">Nombre de objeto: {{ itemView.name }}</th>
+        </tr>
+        <tr>
+            <th colspan="4"><div class="blank"><img class="smimage" src='../itemImages/{{itemView.image}}'></div></th>
+        </tr>
+        <tr>
+          <th>Descripcion</th>
+          <th>Funcion</th>
+          <th>Tipo</th>
+          <th>Precio</th>
+        </tr>
+        <tr>
+          <td>{{ itemView.description }}</td>
+          <td>{{ itemView.itemFunction }}</td>
+          <td>{{ itemView.itemType }}</td>
+          <td>{{ itemView.price }}</td>
+          <input id="gps" value="{{ itemView.gpsLocalization }}">
+        </tr>
+      </table>
+      <script>
+        function initMap() {
+           var gps=$('#gps').val();
+           var coords=gps.split(", ");
+           var latitude=Number(coords[0]);
+           var longitude=Number(coords[1]);
+               
+           //options for map object
+                var options = {
+                    center: { lat:latitude,lng:longitude },
+                    zoom: 15
+                }
+            //new map object
+                var map = new google.maps.Map(document.getElementById("map"), options);
+            //new marker 
+            addMarker(coords); 
+            function addMarker(coords){
+                    var marker = new google.maps.Marker({
+                    position:{lat:latitude,lng:longitude},
+                    map: map
+                });               
+                }  
+            }
+            
+        </script>
+
+      <div id="map"></div>
+      <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZbSdjdX0va81622rErbmafqJFQ_U_JYA&callback=initMap">
+        </script>
+</div>
+
+
+
+
+@endeach
+@endif
+
+@endloggedIn
+@endsection
