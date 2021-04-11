@@ -31,6 +31,13 @@ houseKeeper - Encuentra todos tus objetos
           <td>{{ itemView.itemFunction }}</td>
           <td>{{ itemView.itemType }}</td>
           <td>{{ itemView.price }}</td>
+        <tr><th>Sonido:</th>
+            <td colspan="3"><audio controls>
+                <source src="../itemSounds/{{ itemView.sound }}.mp3" type="audio/mpeg">
+                Your browser does not support the audio tag.
+              </audio>
+            </td>
+        </tr>
           <input id="gps" value="{{ itemView.gpsLocalization }}">
         </tr>
       </table>
