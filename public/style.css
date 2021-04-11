@@ -92,13 +92,21 @@ h1 {
   justify-items: center;
   align-items: center;
 }
+.item-container-details table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .item-container-details table tr th .blank{
   margin-left: auto;
   margin-right: auto;
 }
-.item-container-details table, tr, th, td{
+.item-container-details table tr th{
+  text-align: center;
+  padding: 10px; 
+}
+.item-container-details table, tr td{
   border-collapse: collapse;
-  padding: 5px;
+  padding: 10px;
   text-align: left; 
 }
 #map {
