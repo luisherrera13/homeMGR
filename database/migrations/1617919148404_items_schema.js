@@ -13,7 +13,7 @@ class ItemsSchema extends Schema {
       table.string('sound')
       table.string('gpsLocalization')
       table.integer('home_space_id').unsigned().notNullable().references('id').inTable('home_spaces')
-      table.string('function')
+      table.string('itemFunction')
       table.string('itemType')
       table.string('price')
       table.string('owner1')
