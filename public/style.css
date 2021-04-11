@@ -82,3 +82,29 @@ h1 {
   justify-items: center;
   align-items: center;
 }
+
+.item-container-details {
+  background: white;
+  border-radius: 7px;
+  padding: 1em;
+  margin-bottom: 10px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+}
+.item-container-details table tr th .blank{
+  margin-left: auto;
+  margin-right: auto;
+}
+.item-container-details table, tr, th, td{
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: left; 
+}
+#map {
+  height: 400px;
+  width: 400px;
+}
+#gps{
+  display:none;
+}
