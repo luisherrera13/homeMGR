@@ -131,10 +131,21 @@ module.exports = {
   | routes does have a valid token to execute an action.
   |
   */
-  csrf: {
+ /* csrf: {
     enable: true,
     methods: ['POST', 'PUT', 'DELETE'],
     filterUris: [],
+    cookieOptions: {
+      httpOnly: false,
+      sameSite: true,
+      path: '/',
+      maxAge: 7200
+    }
+  }*/
+  csrf: {
+    enable: true,
+    methods: ['POST', 'PUT', 'DELETE'],
+    filterUris: ['/users/:id', '/users',],
     cookieOptions: {
       httpOnly: false,
       sameSite: true,
