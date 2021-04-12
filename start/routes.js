@@ -21,6 +21,8 @@ Route.get('/', 'HomeController.home');
 Route.get('/spaces/:id', 'HomeSpaceController.home');
 Route.get('/items/:id', 'ItemController.ItemList');
 Route.get('/item/:id', 'ItemController.ItemDetail');
+Route.on('/itemSearch/:id').render('lists.itemSearch');
+Route.get('/itemSearchResult/:id', 'ItemController.ItemSearchList');
 Route.on('/signup').render('auth.signup');
 Route.post('/signup', 'UserController.create').validator('CreateUser');
 Route.on('/login').render('auth.login');

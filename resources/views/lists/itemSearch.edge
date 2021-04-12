@@ -1,0 +1,36 @@
+@layout('layouts.main')
+
+@section('title')
+houseKeeper - Encuentra todos tus objetos
+@endsection
+
+
+@section('content')
+@loggedIn
+<form action="/itemSearchResult/{{ auth.user.id }}" method="get">
+  <div class="searchItem">
+      <h1>Buscar</h1>
+      <input placeholder="escribir aqui.." type="text" name="searchItem" id="searchItem">
+      <button id="searchSubmit">
+       Buscar
+      </button>
+  </div>
+</form>
+@if(items.length>0)
+<h1>Objetos</h1>
+@each(item in items)
+
+<a href="/item/{{ item.id }}" class="item-container">
+  <div class="blank-list">
+    <img class="smimage" src='../itemImages/{{item.image}}'>
+  </div> 
+  <div class="item-info">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+  </div>
+</a>
+@endeach
+@endif
+
+@endloggedIn
+@endsection
