@@ -11,14 +11,14 @@ houseKeeper - Encuentra todos tus objetos
 @if(homes.length>0)
 @each(homeValues in homes)
   @if(homeValues.user_id==auth.user.id)
-    <div class="space-container">
-      <div class="spaces-info">
+  <div class="link-container">
+    <a href="/spaces/{{ homeValues.id }}" class="link">
+      <div class="link-info">
         <h3> Casa: </h3>
-        <a href="/spaces/{{ homeValues.id }}">
-        <h4>{{ homeValues.id }}</h4>
-        <h4>{{ homeValues.home_name }}</h4></a>
+        <h4>{{ homeValues.home_name }}</h4>
       </div>
-    </div>
+    </a>
+    <div>
   @endif
   @endeach
 @endif

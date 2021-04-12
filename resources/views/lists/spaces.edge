@@ -11,14 +11,15 @@ houseKeeper - Encuentra todos tus objetos
 @if(homeSpaces.length>0)
 @each(homeSpace in homeSpaces)
 
-  <div class="space-container">
-    <div class="spaces-info">
-      <h3> Espacios: </h3>
-      <a href="/items/{{ homeSpace.id }}">
-      <h3>{{ homeSpace.spaceName }}</h3>
-      <p>{{ homeSpace.spaceFunction }}</p></a>
-    </div>
-  </div>
+  <div class="link-container">
+    <a href="/items/{{ homeSpace.id }}" class="link">
+      <div class="link-info">
+        <h3> Espacios: </h3>
+        <h3>{{ homeSpace.spaceName }}</h3>
+        <p>{{ homeSpace.spaceFunction }}</p>
+      </div>
+    </a>
+    <div>
 
 @endeach
 @endif

@@ -7,13 +7,12 @@ houseKeeper - Encuentra todos tus objetos
 
 @section('content')
 @loggedIn
-
 @if(items.length>0)
 <h1>Objetos</h1>
 @each(item in items)
 <a href="/item/{{ item.id }}" class="item-container">
-  <div class="blank">
-    <img class="smimage" src='./itemImages/{{item.image}}'>
+  <div class="blank-list">
+    <img class="smimage" src='../itemImages/{{item.image}}'>
   </div> 
   <div class="item-info">
       <h3>{{ item.name }}</h3>
