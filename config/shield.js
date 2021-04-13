@@ -145,7 +145,7 @@ module.exports = {
   csrf: {
     enable: true,
     methods: ['POST', 'PUT', 'DELETE'],
-    filterUris: ['/users/:id', '/users',],
+    filterUris: ['/api/v1', '/api/v1/users/:id', '/api/v1/users', '/api/v1/user'],
     cookieOptions: {
       httpOnly: false,
       sameSite: true,
