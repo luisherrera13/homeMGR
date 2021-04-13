@@ -3,7 +3,7 @@
 const HomeSpace = use('App/Models/HomeSpace')
 
 class HomeSpaceController {
-    async home({view, params}) {
+    async homeSpace({view, params}) {
 
         // Create an item
        /* const homeSpace = new HomeSpace;
@@ -19,8 +19,14 @@ class HomeSpaceController {
 
         return view.render('lists/spaces', { homeSpaces: homeSpaces.toJSON() })
     }
-}
+    async homeSpaceAPI({response, params}) {
 
+        const homeSpaces = await HomeSpace.query().where('home_id', params.id).fetch();
+
+        return response.json({ homeSpaces: homeSpaces.toJSON() }) }
+    
+
+    }
 
 
 module.exports = HomeSpaceController
