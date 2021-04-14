@@ -21,9 +21,10 @@ class HomeSpaceController {
     }
     async homeSpaceAPI({response, params}) {
 
-        const homeSpaces = await HomeSpace.query().where('home_id', params.id).fetch();
-
-        return response.json({ homeSpaces: homeSpaces.toJSON() }) }
+        const homeSpaces = await HomeSpace.query().where('home_id', params.home_id).fetch();
+        var userHomeSpaces=homeSpaces.toJSON();
+        return response.json(userHomeSpaces[0])
+        }
     
 
     }

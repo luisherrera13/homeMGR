@@ -54,11 +54,30 @@ async createAPI ({ request, response }) {
       .send(err)
   }
 }
-async loginAPI({request, auth, response}) {
+async loginAPI({request, response}) {
 
   const { email, password } = request.all();
-  const token = await auth.authenticator('jwt').attempt(email, password);
-  return token;
+ // const token = await auth.authenticator('jwt').attempt(email, password);
+ // return email;
+//console.log(request);
+  const users = await User.query().where('email', email).fetch();
+  const user = users.toJSON();
+  
+  if(user!=""){
+    const Hash = use('Hash');
+    const isSame = await Hash.verify(password, user[0].password);
+  if(isSame && user[0].email==email){
+        return response.json(user[0]);
+  }/*else{
+    return response
+      .status(400)
+      .send({ message: { error: 'Usuario o contraseña incorrectos' } })
+    }*/
+      }/*else{
+      return response
+        .status(400)
+        .send({ message: { error: 'Usuario o contraseña incorrectos' } })
+      }*/
 }
 async logoutAPI({ auth, response }) { 
   await auth.authenticator('jwt').logout();

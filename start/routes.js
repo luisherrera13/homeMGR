@@ -33,12 +33,12 @@ Route.get('/logout', async ({ auth, response }) => {
 Route.post('/login', 'UserController.login').validator('LoginUser');
 //routes for API
 Route.group(() => {
-Route.post('users', 'UserController.loginAPI');
-Route.get('users', 'UserController.logoutAPI').middleware(['auth:basic,jwt']);
+Route.get('users', 'UserController.loginAPI');
+Route.get('user', 'UserController.logoutAPI');
 Route.post('user', 'UserController.createAPI');
-Route.get('home/:id', 'HomeController.homeAPI').middleware(['auth:basic,jwt']);//the id is the user id 
-Route.get('space/:id', 'HomeSpaceController.homeSpaceAPI').middleware(['auth:basic,jwt']);//the id is the home id
-Route.get('items/:id', 'ItemController.ItemListSpaceAPI').middleware(['auth:basic,jwt']);//the id is the item id
-Route.get('item/:id', 'ItemController.ItemDetailAPI').middleware(['auth:basic,jwt']);//the id is the space id
+Route.get('home/:id', 'HomeController.homeAPI');//the id is the user id 
+Route.get('space/:home_id', 'HomeSpaceController.homeSpaceAPI');//the id is the home id
+Route.get('items/:id', 'ItemController.ItemListSpaceAPI');//the id is the item id
+Route.get('item/:id', 'ItemController.ItemDetailAPI');//the id is the space id
 Route.get('/itemSearch/:id', 'ItemController.ItemSearchAPI');//the id is the user id 
 }).prefix('api/v1')
