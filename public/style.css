@@ -150,9 +150,8 @@ tr td {
   border-style: none;
   font-size: 1rem;
 }
-.link-container{
-  background-color: white;
-}
+
+
 .link {
   margin-left: auto;
   margin-right: auto;
@@ -164,6 +163,9 @@ tr td {
 .link-info{
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: white;
+  border-top: dotted;
+  margin-top: 20px;
 }
 .link-info h4, h3{
   display:inline;

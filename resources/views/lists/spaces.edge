@@ -9,19 +9,19 @@ houseKeeper - Encuentra todos tus objetos
 @loggedIn
 
 @if(homeSpaces.length>0)
-@each(homeSpace in homeSpaces)
-
   <div class="link-container">
+    @each(homeSpace in homeSpaces)
     <a href="/items/{{ homeSpace.id }}" class="link">
       <div class="link-info">
-        <h3> Espacios: </h3>
+        <h3> Espacio: </h3>
         <h3>{{ homeSpace.spaceName }}</h3>
         <p>{{ homeSpace.spaceFunction }}</p>
       </div>
     </a>
-    <div>
+    @endeach
+  </div>
 
-@endeach
+
 @endif
 
 @endloggedIn
