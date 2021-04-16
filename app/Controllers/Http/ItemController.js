@@ -42,6 +42,34 @@ class ItemController {
         const item = await Item.query().where('id', params.id).fetch();
         return response.json({ item: item.toJSON() })
         }
+  
+
+    // creating and saving a new item
+    async IteminsertAPI ({ request, response }) {
+      try {
+        // getting data passed within the request
+        const data = request.only(['name', 'home_space_id', 'user_id'])
+    
+        // looking for item in database
+        const itemExists = await HomeSpace.query().whereRaw("name = :itemname AND home_space_id = :homespaceid AND user_id = :userid", {itemname: data.name, homespaceid: data.home_space_id, userid: user_id}).fetch();
+    
+        // if user exists don't save
+        if (itemExists) {
+          return response
+            .status(400)
+            .send({ message: { error: 'Item Already Exists' } })
+        }
+    
+        // if item doesn't exist, proceeds with saving him in DB
+        const item = await Item.create(data);
+        
+        return item
+      } catch (err) {
+        return response
+          .status(err.status)
+          .send(err)
+      }
+    }
         
     }
     module.exports = ItemController
