@@ -42,5 +42,5 @@ Route.get('items/:id', 'ItemController.ItemListSpaceAPI');//the id is the item i
 Route.get('item/:id', 'ItemController.ItemDetailAPI');//the id is the space id
 Route.get('/itemSearch/:id', 'ItemController.ItemSearchAPI');//the id is the user id 
 Route.post('/space', 'HomeSpaceController.createSpaceAPI');
-Route.post('item', 'ItemController.IteminsertAPI');
+Route.post('/item', 'ItemController.IteminsertAPI');
 }).prefix('api/v1')

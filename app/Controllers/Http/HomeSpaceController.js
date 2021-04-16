@@ -39,7 +39,7 @@ async createSpaceAPI ({ request, response }) {
       //var spacesExists=Spaces.toJSON();
   
       // if space exists don't save
-      if (spaceExists.isOne) {
+      if (spaceExists.rows.length!=0) {
         return response
           .status(400)
           .send({ message: { error: 'User already registered' } })

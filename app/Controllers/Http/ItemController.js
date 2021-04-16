@@ -51,10 +51,10 @@ class ItemController {
         const data = request.only(['name', 'home_space_id', 'user_id'])
     
         // looking for item in database
-        const itemExists = await HomeSpace.query().whereRaw("name = :itemname AND home_space_id = :homespaceid AND user_id = :userid", {itemname: data.name, homespaceid: data.home_space_id, userid: user_id}).fetch();
+        const itemExists = await Item.query().whereRaw("name = :itemname AND home_space_id = :homespaceid AND user_id = :userid", {itemname: data.name, homespaceid: data.home_space_id, userid: data.user_id}).fetch();
     
         // if user exists don't save
-        if (itemExists) {
+        if (itemExists.rows.length!=0) {
           return response
             .status(400)
             .send({ message: { error: 'Item Already Exists' } })
