@@ -47,10 +47,11 @@ async createAPI ({ request, response }) {
     // Find a user by user id and save needed values to home table
     const homeValues = await User.find(user.id);
     await homeValues.homes().create({ home_name: user.home });
-    const userProfile = await user.homes().fetch();
+    //getting current user home values
+    const usersHomeID = await user.homes().fetch();
     //adding home id value to user object
     var userwithHomeID=user;
-    userwithHomeID.home_id=userProfile.id;
+    userwithHomeID.home_id=usersHomeID.id;
     return user
   } catch (err) {
     return response
@@ -71,6 +72,12 @@ async loginAPI({request, response}) {
     const Hash = use('Hash');
     const isSame = await Hash.verify(password, user[0].password);
   if(isSame && user[0].email==email){
+    const homeValues = await User.find(user[0].id);
+    //getting current user home values
+    const usersHomeID = await homeValues.homes().fetch();
+    //adding home id value to user object
+    var userwithHomeID=user[0];
+    userwithHomeID.home_id=usersHomeID.id;
         return response.json(user[0]);
   }/*else{
     return response
@@ -80,7 +87,7 @@ async loginAPI({request, response}) {
       }/*else{
       return response
         .status(400)
-        .send({ message: { error: 'Usuario o contraseña incorrectos' } })
+        .send({ message: { error: 'Usuario o contraseña incorrectosx' } })
       }*/
 }
 async logoutAPI({ auth, response }) { 
