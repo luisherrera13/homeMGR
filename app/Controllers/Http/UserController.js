@@ -42,11 +42,15 @@ async createAPI ({ request, response }) {
     }
 
     // if user doesn't exist, proceeds with saving him in DB
-    const user = await User.create(data)
+    const user = await User.create(data);
     
     // Find a user by user id and save needed values to home table
     const homeValues = await User.find(user.id);
     await homeValues.homes().create({ home_name: user.home });
+    const userProfile = await user.homes().fetch();
+    //adding home id value to user object
+    var userwithHomeID=user;
+    userwithHomeID.home_id=userProfile.id;
     return user
   } catch (err) {
     return response
