@@ -15,4 +15,4 @@ database/*.sqlite
 .history
 .idea
 # The object images
-public/itemImages
+#public/itemImages
