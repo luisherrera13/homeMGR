@@ -48,7 +48,7 @@ class ItemController {
     async IteminsertAPI ({ request, response }) {
       try {
         // getting data passed within the request
-        const data = request.only(['name', 'home_space_id', 'user_id'])
+        const data = request.only(['name', 'description', 'image', 'sound', 'gpsLocalization', 'home_space_id', 'itemFunction', 'itemType', 'price', 'owner1', 'owner2', 'owner3', 'owner4', 'owner5', 'user_id'])
     
         // looking for item in database
         const itemExists = await Item.query().whereRaw("name = :itemname AND home_space_id = :homespaceid AND user_id = :userid", {itemname: data.name, homespaceid: data.home_space_id, userid: data.user_id}).fetch();
